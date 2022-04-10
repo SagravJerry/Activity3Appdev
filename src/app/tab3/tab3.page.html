@@ -12,30 +12,43 @@
       <ion-title size="large">Contacts</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div padding>
-    
-  </div>
-  
-  
-  <div>
+  <ion-content padding>
+
+    <form [formGroup]="formData">
+      <ion-list>
+        <ion-item>
+          <ion-label position="fixed">Name: </ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed">Last Name: </ion-label>
+          <ion-input formControlName="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed">Phone: </ion-label>
+          <ion-input formControlName="Phone" type="numeric"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="onSubmit()" type="Add" expand="block">Save</ion-button>
+
+    </form>
+
     <ion-list>
-<ion-list>
-  <!-- Sliding item with text options on both sides -->
   <ion-item-sliding *ngFor="let item of items">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/avatar1.png">
+      </ion-thumbnail>
+     {{item.name}}
+    {{item.lastName}}<br>
+     {{item.Phone}}
+    </ion-item>
     <ion-item-options side="start">
       <ion-item-option (click)="alertThis()"><ion-icon name="trash"></ion-icon></ion-item-option>
-      <ion-item-option (click)="alertThis()"><ion-icon name="mail-outline"></ion-icon></ion-item-option>
+      <ion-item-option><ion-icon name="mail-outline"></ion-icon></ion-item-option>
     </ion-item-options>
-
-    <ion-item>
-        <ion-thumbnail item-start>
-          <img src="assets/avatar1.png">
-        </ion-thumbnail>
-       {{item.name}}<br>
-       {{item.number}}
-    </ion-item>
     
   </ion-item-sliding>
   
 </ion-list>
-
+  </ion-content>

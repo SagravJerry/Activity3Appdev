@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-label>To</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions" interface="alert">
+        <ion-select-option *ngFor="let contact of contacts" [value]="contact.phoneNumber">
+          {{ contact.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder="Type something here..." rows="5" cols="30"></ion-textarea>
+    </ion-item>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Send Message</ion-button>
+    </div>
+  </ion-list>
+</ion-content>
